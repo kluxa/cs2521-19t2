@@ -3,7 +3,7 @@
 // Try
 // $ ./readLine
 // and
-// $ ./readLine < helloWorld.txt
+// $ ./readLine < hello.txt
 
 #include <stdio.h>
 

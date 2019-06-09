@@ -48,7 +48,6 @@ int main(void) {
 }
 
 // sum a list using a while loop
-
 int sumList1(List head) {
 	List curr = head; // initialisation
 	int sum = 0;
@@ -83,9 +82,9 @@ int sumList2(List head) {
 // linked lists within it.  For example, 4 -> 5 -> X, 5 -> X, and
 // X (the empty list).
 // Almost all lists contain a smaller list within them. The only
-// exception is the empty list.  So we can divide all lists into
-// two categories:
-// 1. an empty list
+// exception is the empty list.  So there are 2 types of lists -
+// a list is either:
+// 1. an empty list, or
 // 2. a node with a value, followed by a list
 // Handling the empty list case is simple - we return 0, because
 // there is nothing more to add.  In the second case, we rely on
