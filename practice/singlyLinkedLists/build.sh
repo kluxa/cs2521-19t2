@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 0 ]
 then
@@ -7,6 +7,6 @@ then
 fi
 
 fname="$1"
-upper="$(tr '[:lower:]' '[:upper:]' <<< ${fname:0:1})${fname:1}"
+upper="${fname^}"
 gcc -Wall -Werror -std=gnu99 -o testList list.c "testDrivers/test$upper.c" "exercises/$fname.c"
 
