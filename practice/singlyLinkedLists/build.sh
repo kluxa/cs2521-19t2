@@ -8,5 +8,5 @@ fi
 
 fname="$1"
 upper="${fname^}"
-gcc -Wall -Werror -std=gnu99 -o testList list.c "testDrivers/test$upper.c" "exercises/$fname.c"
+gcc -Wall -Werror -std=gnu99 -g -o testList list.c "testDrivers/test$upper.c" "exercises/$fname.c"
 
