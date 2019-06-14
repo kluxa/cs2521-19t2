@@ -45,4 +45,3 @@ void withdraw(BankAccount acc, int amount) {
 int getBalance(BankAccount acc) {
 	return acc->amount;
 }
-

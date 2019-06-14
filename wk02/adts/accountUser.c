@@ -24,4 +24,3 @@ int main(void) {
 	withdraw(account, 60);
 	assert(getBalance(account) ==  90);
 }
-

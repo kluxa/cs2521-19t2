@@ -1,0 +1,36 @@
+
+Suppose s is the string and n is its length. Then the algorithm would be:
+
+result = true
+for i = 0..(n / 2) do
+	if s[i] != s[n - i - 1] then
+		result = false
+		break
+	end if
+end for
+
+How did we come up with the index n - i - 1? We found what index i should
+be compared with by using an example. For the string "racecar":
+
+ i | j = what index i should be compared with
+---+------------------------------------------
+ 0 |                    6
+ 1 |                    5
+ 2 |                    4
+
+From this we found that the connection between i and j was j = n - i - 1.
+
+Time complexity: We simply count how many times each line will run in the
+worst case.
+
+result = true                     > 1
+for i = 0..(n/2 - 1) do           > n/2
+	if s[i] != s[n - i - 1] then  > n/2
+		result = false            > 1
+		break                     > 1
+	end if
+end for
+
+So the time complexity is O(n/2) = O(n).
+
+The code is in palindrome.c.
