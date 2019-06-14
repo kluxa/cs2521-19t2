@@ -25,10 +25,10 @@ worst case.
 
 result = true                     > 1
 for i = 0..(n/2 - 1) do           > n/2
-	if s[i] != s[n - i - 1] then  > n/2
-		result = false            > 1
-		break                     > 1
-	end if
+    if s[i] != s[n - i - 1] then  > n/2
+        result = false            > 1
+        break                     > 1
+    end if
 end for
 
 So the time complexity is O(n/2) = O(n).

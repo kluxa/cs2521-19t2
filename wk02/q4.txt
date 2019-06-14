@@ -76,35 +76,35 @@ j = 0 // used to scan through V2
 
 // while V1 and V2 are not both exhausted
 while i < V1.length or j < V2.length do
-	// V1 is exhausted, but not V2
-	if i == V1.length then
-		V3.append(V2[j])
-		j++
+    // V1 is exhausted, but not V2
+    if i == V1.length then
+        V3.append(V2[j])
+        j++
 
-	// V2 is exhausted, but not V1
-	elif j == V2.length then
-		V3.append(V1[i])
-		i++
-	
-	// position of V1[i] is equal to the position of V2[j]
-	elif V1[i][0] == V2[j][0] then
-		sum = V1[i][1] + V2[i][1]
-		if sum != 0 then
-			V3.append((V1[i][0], sum))
-		end if
-		i++
-		j++
-	
-	// position of V1[i] is smaller than position of V2[j]
-	elif V1[i][0] < V2[j][0] then
-		V3.append(V1[i])
-		i++
-	
-	// position of V2[j] is smaller than position of V1[i]
-	else
-		V3.append(V2[j])
-		j++
-	end if
+    // V2 is exhausted, but not V1
+    elif j == V2.length then
+        V3.append(V1[i])
+        i++
+
+    // position of V1[i] is equal to the position of V2[j]
+    elif V1[i][0] == V2[j][0] then
+        sum = V1[i][1] + V2[j][1]
+        if sum != 0 then
+            V3.append((V1[i][0], sum))
+        end if
+        i++
+        j++
+
+    // position of V1[i] is smaller than position of V2[j]
+    elif V1[i][0] < V2[j][0] then
+        V3.append(V1[i])
+        i++
+
+    // position of V2[j] is smaller than position of V1[i]
+    else
+        V3.append(V2[j])
+        j++
+    end if
 end while
 
 --------------------------------------------------------------------

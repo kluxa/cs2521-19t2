@@ -8,15 +8,15 @@ to a running sum.
 
 sum = 0
 for i = 0..n do
-	sum += A[i] * power(x, i)
+    sum += A[i] * power(x, i)
 end for
 
 procedure power(x, i):
-	result = 1
-	for j = 0..(i - 1) do
-		result *= x           <<<
-	end for
-	return result
+    result = 1
+    for j = 0..(i - 1) do
+        result *= x       <<<
+    end for
+    return result
 
 Let's look at how many times the line I've marked with <<< runs. When i
 is 0, it does not run. When i is 1, it runs once. When i is n, it runs
@@ -36,13 +36,13 @@ powers of x, which we can compute in O(n) time.
 
 power = 1
 for i = 0..n do            |
-	powers[i] = power      | > these lines run n times
-	power *= x             |
+    powers[i] = power      | > these lines run n times
+    power *= x             |
 end for
 
 sum = 0
 for i = 0..n do            |
-	sum += A[i] * power[i] | > these lines run n times
+    sum += A[i] * power[i] | > these lines run n times
 end for
 
 Both parts of the algorithm run in O(n) time,  so overall our algorithm
@@ -59,6 +59,6 @@ This doesn't change the time complexity, but saves on space.
 power = 1
 sum = 0
 for i = 0..n do
-	sum += A[i] * power
-	power *= x
+    sum += A[i] * power
+    power *= x
 end for
