@@ -1,12 +1,25 @@
 #!/bin/bash
 
-if [ $# -eq 0 ]
-then
-	echo "Usage: $0 <function name>"
+usage()
+{
+	echo "Usage: $0 [-s] <function name>"
+	echo "The -s option compiles the solution rather than your code."
 	exit 1
+}
+
+if [ $# -eq 0 -o $# -gt 2 ] || [ $# -eq 2 -a $1 != "-s" ]
+then
+	usage
 fi
 
 fname="$1"
+directory="exercises/"
+if [ $# -eq 2 ]
+then
+	fname="$2"
+	directory="solutions/"
+fi
+
 upper="${fname^}"
-gcc -Wall -Werror -std=gnu99 -g -o testList list.c "testDrivers/test$upper.c" "exercises/$fname.c"
+gcc -Wall -Werror -std=gnu99 -g -o testList list.c "testDrivers/test$upper.c" "$directory/$fname.c"
 
