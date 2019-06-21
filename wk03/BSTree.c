@@ -38,7 +38,13 @@ int TreeHeight(BSTree t) {
  * leaf.
  */
 int countInternal(BSTree t) {
-    return -1;
+    if (t == NULL) {
+        return 0;
+    } else if (t->left == NULL && t->right == NULL) {
+        return 0;
+    } else {
+        return 1 + countInternal(t->left) + countInternal(t->right);
+    }
 }
 
 /**
@@ -46,7 +52,19 @@ int countInternal(BSTree t) {
  * if it exists, or -1 otherwise.
  */
 int nodeDepth(BSTree t, int key) {
-    return -1;
+    if (t == NULL) {
+        return -1;
+    } else if (key == t->value) {
+        return 0;
+    } else if (key < t->value) {
+        int l = nodeDepth(t->left, key);
+        if (l == -1) return -1;
+        return l + 1;
+    } else { // (key > t->value)
+        int r = nodeDepth(t->right, key);
+        if (r == -1) return -1;
+        return r + 1;
+    }
 }
 
 /**
@@ -55,7 +73,15 @@ int nodeDepth(BSTree t, int key) {
  * from the root to a leaf.
  */
 int BSTreeMaxBranchLen(BSTree t) {
-    return -1;
+    if (t == NULL) {
+        return 0;
+    } else if (t->left == NULL && t->right == NULL) {
+        return 0;
+    } else {
+        int l = BSTreeMaxBranchLen(t->left);
+        int r = BSTreeMaxBranchLen(t->right);
+        return 1 + (l > r ? l : r);
+    }
 }
 
 /**
@@ -66,5 +92,12 @@ int BSTreeMaxBranchLen(BSTree t) {
  *   width of the subtrees
  */
 int BSTWidth(BSTree t) {
-    return -1;
+    if (t == NULL) {
+        return 0;
+    // unnecessary - the recursive case covers this
+    // } else if (t->left == NULL && t->right == NULL) {
+    //     return 3;
+    } else {
+        return 3 + BSTWidth(t->left) + BSTWidth(t->right);
+    }
 }
