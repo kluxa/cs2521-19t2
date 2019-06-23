@@ -2,7 +2,7 @@
 
 CC = gcc
 CFLAGS = -Wall -Werror -std=c99
-LDLIBS = -lbsd
+# LDLIBS = -lbsd
 
 .PHONY: all
 all: tlab

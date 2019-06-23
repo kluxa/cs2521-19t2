@@ -264,18 +264,14 @@ static void mkuniq (int *v, int N)
 
 static void usage (void)
 {
-	// on Linux, libbsd provides `getprogname'.
-	const char *getprogname (void);
-
 	fprintf (
 		stderr,
-		"Usage: %s N Order Insert Seed\n"
+		"Usage: ./tlab N Order Insert Seed\n"
 		"0 <= N <= 9999, Seed = a random number\n"
 		"Order = Ascending|Descending|Prefix|Random\n"
 		"Insert = Leaf|At-root|reBalance|Random|Splay|aVl\n"
 		"For Order and Insert, use just the upper-case letter\n"
-		"e.g. for AVL, use V; for Rebalancing, use B\n",
-		getprogname ()
+		"e.g. for AVL, use V; for Rebalancing, use B\n"
 	);
 	exit (EX_USAGE);
 }
