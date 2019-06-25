@@ -2,6 +2,8 @@
 #ifndef BSTREE_H
 #define BSTREE_H
 
+#define NOT_AVL -99
+
 typedef struct BSTNode *BSTree;
 typedef struct BSTNode {
     int value;
@@ -25,7 +27,7 @@ int printHeightDiff(BSTree t);
 
 /**
  * Returns  the  height of the given binary tree if it is an AVL tree,
- * and -1 otherwise.
+ * and NOT_AVL otherwise.
  */
 int isAVL(BSTree t);
 

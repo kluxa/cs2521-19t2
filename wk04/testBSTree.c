@@ -18,8 +18,8 @@ static void testIsAVL(void);
 
 static BSTree newBSTLink(int value, BSTree left, BSTree right);
 
-static BSTree t01, t02, t03, t04, t05, t06, t07, t08, t09, t10,
-              t11, t12, t13;
+static BSTree t00, t01, t02, t03, t04, t05, t06, t07, t08, t09,
+              t10, t11, t12, t13;
 
 
 int main(void) {
@@ -33,6 +33,12 @@ int main(void) {
 }
 
 static void initTrees(void) {
+    /*
+        X
+     */
+    t00 =
+        NULL;
+    
     /*
         3
      */
@@ -231,19 +237,20 @@ static void initTrees(void) {
 }
 
 static void testTreeHeight(void) {
-    assert(TreeHeight(t01) == 0);
-    assert(TreeHeight(t02) == 1);
-    assert(TreeHeight(t03) == 1);
-    assert(TreeHeight(t04) == 1);
-    assert(TreeHeight(t05) == 2);
-    assert(TreeHeight(t06) == 2);
-    assert(TreeHeight(t07) == 2);
-    assert(TreeHeight(t08) == 2);
-    assert(TreeHeight(t09) == 2);
-    assert(TreeHeight(t10) == 2);
-    assert(TreeHeight(t11) == 3);
-    assert(TreeHeight(t12) == 3);
-    assert(TreeHeight(t13) == 3);
+    assert(TreeHeight(t00) == -1);
+    assert(TreeHeight(t01) ==  0);
+    assert(TreeHeight(t02) ==  1);
+    assert(TreeHeight(t03) ==  1);
+    assert(TreeHeight(t04) ==  1);
+    assert(TreeHeight(t05) ==  2);
+    assert(TreeHeight(t06) ==  2);
+    assert(TreeHeight(t07) ==  2);
+    assert(TreeHeight(t08) ==  2);
+    assert(TreeHeight(t09) ==  2);
+    assert(TreeHeight(t10) ==  2);
+    assert(TreeHeight(t11) ==  3);
+    assert(TreeHeight(t12) ==  3);
+    assert(TreeHeight(t13) ==  3);
 
     printf("TreeHeight tests passed!\n");
 }
@@ -264,18 +271,19 @@ static void testPrintHeightDiff(void) {
 }
 
 static void testIsAVL(void) {
+    assert(isAVL(t00) == -1);
     assert(isAVL(t01) ==  0);
     assert(isAVL(t02) ==  1);
     assert(isAVL(t03) ==  1);
     assert(isAVL(t04) ==  1);
-    assert(isAVL(t05) == -1);
-    assert(isAVL(t06) == -1);
+    assert(isAVL(t05) ==  NOT_AVL);
+    assert(isAVL(t06) ==  NOT_AVL);
     assert(isAVL(t07) ==  2);
     assert(isAVL(t08) ==  2);
-    assert(isAVL(t09) == -1);
+    assert(isAVL(t09) ==  NOT_AVL);
     assert(isAVL(t10) ==  2);
-    assert(isAVL(t11) == -1);
-    assert(isAVL(t12) == -1);
+    assert(isAVL(t11) ==  NOT_AVL);
+    assert(isAVL(t12) ==  NOT_AVL);
     assert(isAVL(t13) ==  3);
 
     printf("isAVL tests passed!\n");

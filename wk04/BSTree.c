@@ -31,8 +31,8 @@ int printHeightDiff(BSTree t) {
 
 /**
  * Returns  the  height of the given binary tree if it is an AVL tree,
- * and -1 otherwise.
+ * and NOT_AVL otherwise.
  */
 int isAVL(BSTree t) {
-    return -1;
+    return NOT_AVL;
 }
