@@ -26,7 +26,15 @@ int TreeHeight(BSTree t) {
  * height of the binary tree.
  */
 int printHeightDiff(BSTree t) {
-    return -1;
+    if (t == NULL) {
+        return -1;
+    } else {
+        int l = printHeightDiff(t->left);
+        int r = printHeightDiff(t->right);
+        printf("At node %d, height(left) - height(right) = %d\n",
+               t->value, l - r);
+        return 1 + (l > r ? l : r);
+    }
 }
 
 /**
@@ -34,5 +42,22 @@ int printHeightDiff(BSTree t) {
  * and NOT_AVL otherwise.
  */
 int isAVL(BSTree t) {
-    return NOT_AVL;
+    if (t == NULL) {
+        return -1;
+    } else {
+        int l = isAVL(t->left);
+        int r = isAVL(t->right);
+        // If  the left or right subtree is not an AVL tree, then the
+        // the current tree is also not an AVL tree.
+        if (l == NOT_AVL || r == NOT_AVL) {
+            return NOT_AVL;
+        }
+        // If  the  difference  in  height between the left and right
+        // subtrees is greater than 1, then the tree is not AVL.
+        if (l - r > 1 || r - l > 1) {
+            return NOT_AVL;
+        }
+
+        return 1 + (l > r ? l : r);
+    }
 }
