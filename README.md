@@ -15,7 +15,7 @@ Code for COMP2521 [19t2]
 
   - Deletion
 
-- Make sure you know how to solve linked list questions using diagrams (it will change your life)
+- Make sure you know how to solve linked list questions using diagrams (it can save your life)
 
 - Get some practice with linked list prac questions
   - Sample midterm
@@ -25,7 +25,9 @@ Code for COMP2521 [19t2]
 	- Solutions available (but no autotests)
 	- Download the unzip the zip file in the `practice/singlyLinkedLists/` directory
 
-- Get some practice with tree prac questions, especially using recursion
+- Get familiar with basic tree operations such as search and insertion
+- Get some practice with tree questions, especially using recursion
+  - Lecture examples (search and insertion)
   - Sample midterm
   - Week 3 and 4 lab/tutorial exercises
   - Tree practice questions available
@@ -39,3 +41,4 @@ Code for COMP2521 [19t2]
   - Does it have a size/nitems field? Do you need to update this?
 - List out the different cases
 - If you're not 100% confident, draw a diagram and walk through your code using that diagram
+- Test your code yourself - the autotest might not cover all of the cases
