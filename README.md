@@ -33,6 +33,7 @@ Code for COMP2521 [19t2]
   - Tree practice questions available
     - Autotests and solutions included
 	- Download and unzip the zip file in the `practice/trees/` directory
+    - Most of them are harder than what you'll get in the midterm
 
 ### Exam Tips
 - Make sure you understand the data structure
