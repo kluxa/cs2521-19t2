@@ -4,9 +4,6 @@
 
 #include "list.h"
 
-static List newList(void);
-static Node newNode(int value);
-
 /**
  * Creates  a  new  list that is formed from zipping values from the two
  * given lists. The original lists should remain unchanged. Zip means to
@@ -28,29 +25,5 @@ List listZip(List l1, List l2) {
 	(void) l1;
 	(void) l2;
 	return NULL;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Some functions to help you out
-
-static List newList(void) {
-	List l = malloc(sizeof(*l));
-	if (l == NULL) {
-		fprintf(stderr, "Insufficient memory!\n");
-		exit(EXIT_FAILURE);
-	}
-	l->head = NULL;
-	return l;
-}
-
-static Node newNode(int value) {
-	Node n = malloc(sizeof(*n));
-	if (n == NULL) {
-		fprintf(stderr, "Insufficient memory!\n");
-		exit(EXIT_FAILURE);
-	}
-	n->value = value;
-	n->next = NULL;
-	return n;
 }
 
