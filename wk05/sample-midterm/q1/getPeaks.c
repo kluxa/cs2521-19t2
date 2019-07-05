@@ -30,15 +30,18 @@ DLList getPeaks(DLList L) {
         return peaksL;
     }
 
-    // Loop  from  the second node to the last node (why do we stop at
-    // the  last  node  instead of NULL?). If current value is a peak,
-    // append it to the peaks list.
+    // The first value can't be a peak, so start at the second value.
+    // Loop  from  the  second node to the second last node (why do we
+    // stop  at  the last node instead of NULL?). If the current value
+    // is a peak, append it to the peaks list.
     for (DLListNode *curr = L->first->next; curr->next != NULL; curr = curr->next) {
         if (curr->value > curr->prev->value && curr->value > curr->next->value) {
+            // You should break your code up into functions
             DLListAppend(peaksL, curr->value);
         }
     }
 
+    // Just to be safe
     peaksL->curr = peaksL->first;
 	return peaksL;
 }
@@ -50,6 +53,7 @@ static DLListNode *DLListAppend(DLList L, int value) {
         L->first = new;
         L->last = new;
         L->curr = new;
+
     } else {
         L->last->next = new;
         new->prev = L->last;

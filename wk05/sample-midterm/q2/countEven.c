@@ -26,11 +26,15 @@ int countEven(BSTree t) {
     if (t == NULL) {
         return 0;
     
-    // If the root has an even value
+    // If the root has an even value, then sum up the number
+    // of  even values in the left and right subtrees, then
+    // add one and return.
     } else if (t->key % 2 == 0) {
         return 1 + countEven(t->left) + countEven(t->right);
     
-    // If the root does not have an even value
+    // If  the root does not have an even value, then sum up
+    // the  number  of  even  values  in  the left and right
+    // subtrees and return.
     } else {
         return countEven(t->left) + countEven(t->right);
     }
