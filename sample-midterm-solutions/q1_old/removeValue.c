@@ -58,13 +58,13 @@ void removeValue(DLList L, int value) {
             L->nitems--;
             
         } else {
-	        curr = curr->next;
-	    }
+            curr = curr->next;
+        }
     }
 
     // As specified in the question
     L->curr = L->first;
-	return;
+    return;
 }
 
 
