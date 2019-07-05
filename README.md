@@ -12,8 +12,15 @@ Code for COMP2521 [19t2]
 ### Preparation Tips
 - Make sure you understand the different cases for insertion and deletion in a doubly linked list
   - Insertion (at the end)
+    - Empty
+    - Non-empty
 
   - Deletion
+    - Already empty
+    - Only one node
+    - First node
+    - Last node
+    - Middle node
 
 - Make sure you know how to solve linked list questions using diagrams (it can save your life)
 
