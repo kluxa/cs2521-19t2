@@ -22,7 +22,7 @@
 static DLListNode *DLListAppend(DLList L, int value);
 
 DLList getPeaks(DLList L) {
-	DLList peaksL = newDLList();
+    DLList peaksL = newDLList();
 
     // Because the first and last items can't be peaks, there can't be
     // any peaks if the input list has fewer than 3 items.
@@ -43,7 +43,7 @@ DLList getPeaks(DLList L) {
 
     // Just to be safe
     peaksL->curr = peaksL->first;
-	return peaksL;
+    return peaksL;
 }
 
 static DLListNode *DLListAppend(DLList L, int value) {
