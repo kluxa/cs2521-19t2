@@ -105,7 +105,8 @@ bool treeIsHeightBalanced(Tree t) {
 }
 
 // Returns  the  height  of the given tree if it is height-balanced, and
-// NOT_BALANCED otherwise. This is identical to isAVL in Week 4 Tutorial
+// NOT_BALANCED  otherwise.  This  is  identical  to isAVL in the Week 4
+// Tutorial
 static int doIsHeightBalanced(Tree t) {
 	if (t == NULL) {
 		return -1;

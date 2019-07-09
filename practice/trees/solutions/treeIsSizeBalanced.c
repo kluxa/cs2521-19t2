@@ -102,8 +102,8 @@ bool treeIsSizeBalanced(Tree t) {
 	}
 }
 
-// Returns the size of the given tree if it is height-balanced, and NOT_
-// BALANCED otherwise. This is similar to isAVL in Week 4 Tutorial
+// Returns  the  size of the given tree if it is size-balanced, and NOT_
+// BALANCED otherwise. This is similar to isAVL in the Week 4 Tutorial.
 static int doIsSizeBalanced(Tree t) {
 	if (t == NULL) {
 		return 0;
