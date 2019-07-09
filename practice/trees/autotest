@@ -92,7 +92,7 @@ check_exercise_solution_exists()
 # $2: source directory
 compile_test_driver()
 {
-	echo "Compiling... ${1^}"
+	echo "Compiling..."
 	gcc -Wall -Werror -std=gnu99 -g -o "$TEST_BIN_DIR/test${1^}" "$COMMON_DIR"/*.[co] "$TEST_DRIVERS_DIR/test${1^}.c" "$2/$1.c" || exit 1
 	echo ""
 }
