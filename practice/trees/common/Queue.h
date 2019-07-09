@@ -27,12 +27,13 @@ Item QueueDequeue(Queue q);
 Item QueuePeek(Queue q);
 
 // Get the number of elements in the queue
-size_t QueueSize(Queue q);
+int QueueSize(Queue q);
 
 // Check if the queue is empty
 bool QueueIsEmpty(Queue q);
 
-// Print the queue to an open file (for debugging)
+// Print the queue to an open file (for debugging) as a line of space-
+// separated items, with the item at the front of the queue first
 void QueueDump(Queue q, FILE *fp);
 
 #endif
