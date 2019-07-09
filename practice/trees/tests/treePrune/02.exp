@@ -1,0 +1,19 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter depth: 
+----------------
+ Before pruning 
+----------------
+
+    7
+   / \
+  5   8
+ / \
+3   6
+
+depth: 0
+
+---------------
+ After pruning 
+---------------
+
+X
+

@@ -1,0 +1,19 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+------------------------
+ Before deleting leaves 
+------------------------
+
+    3
+   / \
+  2   4
+ /     \
+1       5
+
+-----------------------
+ After deleting leaves 
+-----------------------
+
+  3
+ / \
+2   4
+

@@ -1,0 +1,12 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter num: 
+Tree:
+
+  5
+ / \
+1   8
+ \
+  2
+
+num: 2
+
+bstInorderSuccessor returned: 5

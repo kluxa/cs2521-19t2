@@ -1,0 +1,27 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+2
+ \
+  5
+   \
+    8
+   / \
+  7   9
+
+Enter k: k: 0
+treeGetKth returned: 2
+
+Enter k: k: 1
+treeGetKth returned: 5
+
+Enter k: k: 2
+treeGetKth returned: 7
+
+Enter k: k: 3
+treeGetKth returned: 8
+
+Enter k: k: 4
+treeGetKth returned: 9
+
+Enter k: 

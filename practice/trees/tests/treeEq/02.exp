@@ -1,0 +1,16 @@
+Enter the preorder traversal of tree 1: Enter the in-order traversal of tree 1: Enter the preorder traversal of tree 2: Enter the in-order traversal of tree 2: 
+Tree 1:
+
+    4
+   / \
+  2   7
+ /
+1
+
+Tree 2:
+
+  4
+ / \
+2   7
+
+treeEq returned: FALSE

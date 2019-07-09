@@ -1,0 +1,29 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+----------------------------
+ Before reflecting the tree 
+----------------------------
+
+        9
+       /
+      4
+     / \
+    /   \
+   /     \
+  2       6
+ / \     / \
+1   3   5   7
+
+---------------------------
+ After reflecting the tree 
+---------------------------
+
+    9
+     \
+      4
+     / \
+    /   \
+   /     \
+  6       2
+ / \     / \
+7   5   3   1
+

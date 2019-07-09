@@ -1,0 +1,14 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+-------------------------
+ Before deleting largest 
+-------------------------
+
+2
+
+------------------------
+ After deleting largest 
+------------------------
+
+X
+
+Deleted value: 2

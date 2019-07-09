@@ -1,0 +1,8 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter num: 
+Tree:
+
+3
+
+num: 3
+
+bstInorderSuccessor returned: NULL

@@ -1,0 +1,33 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+X
+
+Enter sum: sum: -4
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: -3
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: -2
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: -1
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 0
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 1
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 2
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 3
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 4
+treeHasPathSum returned: FALSE
+
+Enter sum: 

@@ -1,0 +1,14 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+    4
+   / \
+  2   5
+ / \   \
+1   3   6
+         \
+          8
+         / \
+        7   9
+
+treeNumInternal returned: 5

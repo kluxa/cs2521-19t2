@@ -1,0 +1,24 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+-------------------------
+ Before deleting largest 
+-------------------------
+
+2
+ \
+  3
+   \
+    7
+   /
+  5
+
+------------------------
+ After deleting largest 
+------------------------
+
+2
+ \
+  3
+   \
+    5
+
+Deleted value: 7

@@ -1,0 +1,27 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+--------------------------
+ Before doubling the tree 
+--------------------------
+
+5
+ \
+  7
+   \
+    8
+     \
+      9
+
+-------------------------
+ After doubling the tree 
+-------------------------
+
+  5
+ / \
+5   7
+   / \
+  7   8
+     / \
+    8   9
+       /
+      9
+

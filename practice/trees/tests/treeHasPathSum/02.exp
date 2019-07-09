@@ -1,0 +1,90 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+  5
+ / \
+1   7
+ \   \
+  3   9
+ / \
+2   4
+
+Enter sum: sum: 0
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 1
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 2
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 3
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 4
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 5
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 6
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 7
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 8
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 9
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 10
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 11
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 12
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 13
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 14
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 15
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 16
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 17
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 18
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 19
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 20
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 21
+treeHasPathSum returned: TRUE
+
+Enter sum: sum: 22
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 23
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 24
+treeHasPathSum returned: FALSE
+
+Enter sum: sum: 25
+treeHasPathSum returned: FALSE
+
+Enter sum: 

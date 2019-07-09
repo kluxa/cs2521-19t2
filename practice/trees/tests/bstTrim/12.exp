@@ -1,0 +1,16 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter min: Enter max: 
+-----------------
+ Before trimming 
+-----------------
+
+7
+
+min: 8
+max: 8
+
+----------------
+ After trimming 
+----------------
+
+X
+

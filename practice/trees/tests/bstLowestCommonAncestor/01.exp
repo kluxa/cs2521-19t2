@@ -1,0 +1,13 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter val1: Enter val2: 
+Tree:
+
+    3
+   / \
+  2   4
+ /     \
+1       5
+
+val1: 1
+val2: 5
+
+bstLowestCommonAncestor returned: 3

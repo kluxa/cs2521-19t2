@@ -1,0 +1,9 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+4
+
+Enter k: k: 0
+treeGetKth returned: 4
+
+Enter k: 
