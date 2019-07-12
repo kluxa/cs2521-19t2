@@ -1,7 +1,7 @@
 # COMP2521 17s2; Question: getPeaks
 
 CC=gcc
-CFLAGS=-Wall -Werror
+CFLAGS=-Wall -Werror -g
 
 all: testGetPeaks
 
