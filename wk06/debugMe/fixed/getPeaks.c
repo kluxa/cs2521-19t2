@@ -19,7 +19,7 @@
     
 */
 
-void DLListAppend(DLList L, int value);
+static void DLListAppend(DLList L, int value);
 
 DLList getPeaks(DLList L) {
     DLList peaksL = newDLList();
@@ -38,7 +38,7 @@ DLList getPeaks(DLList L) {
     return peaksL;
 }
 
-void DLListAppend(DLList L, int value) {
+static void DLListAppend(DLList L, int value) {
     DLListNode *new = newDLListNode(value);
     
     if (L->first == NULL) {

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	putDLList(stdout, L);
 
 	DLList AnsL = getPeaks(L);
-	int validList = validDLList(L);
+	int validList = validDLList(AnsL);
 	if( ! validList ) {
 		fprintf(stderr, ">>> Error: Invalid list returned from the function getPeaks! \n");
 		return 1;
