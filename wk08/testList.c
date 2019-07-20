@@ -50,9 +50,14 @@ void testFold(void) {
 	List l1 = newList(3, 2, 3, 4);
 	printList(l1);
 
-	printf("fold(l1, mul, 1) => %d\n", fold(l1, mul, 1));
-	printf("fold(l1, sum, 0) => %d\n", fold(l1, sum, 0));
-	printf("fold(l1, min, 1) => %d\n", fold(l1, min, INT_MAX));
+	int product = fold(l1, mul, 1);
+	printf("fold(l1, mul, 1) => %d\n", product);
+
+	int listSum = fold(l1, sum, 0);
+	printf("fold(l1, sum, 0) => %d\n", listSum);
+
+	int minimum = fold(l1, min, INT_MAX);
+	printf("fold(l1, min, 1) => %d\n", minimum);
 }
 
 //////////////////////////////////////////////////
