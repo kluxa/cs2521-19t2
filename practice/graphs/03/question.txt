@@ -1,0 +1,25 @@
+
+Finding  a Hamilton path in a graph is known to be a hard problem, but
+verifying that a given path is a Hamilton path is easy.
+
+In this question,  you must write a function, verifyHamiltonPath, that
+takes in a Graph and a path and returns whether the path is a Hamilton
+path. It should return true if it is, and false otherwise.
+
+THE FILES
+
+Graph.h  and  Graph.c contain, respectively, the interface and
+implementation  of an undirected graph ADT, using an adjacency
+matrix representation.
+
+verifyHamiltonPath,  the  function  you  must implement, is in
+verifyHamiltonPath.c. You may add additional helper functions,
+but be sure to make them static.
+
+TESTING
+
+There  are some simple tests in testVerifyHamiltonPath.c. You should add
+your own tests.
+
+To compile and run the tests, run make and then ./testVerifyHamiltonPath.
+
