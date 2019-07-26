@@ -12,3 +12,7 @@ badFib: badFib.c
 
 goodFib: goodFib.c
 	$(CC) $(CFLAGS) -o goodFib goodFib.c
+
+.PHONY: clean
+clean:
+	rm -f testList badFib goodFib

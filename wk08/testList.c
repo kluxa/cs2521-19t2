@@ -47,7 +47,7 @@ int min(int x, int y) { return x < y ? x : y; }
 
 void testFold(void) {
 	printf("\n***** testFold *****\n");
-	List l1 = newList(3, 2, 3, 4);
+	List l1 = newList(4, 1, 2, 3, 4);
 	printList(l1);
 
 	int product = fold(l1, mul, 1);
@@ -57,7 +57,7 @@ void testFold(void) {
 	printf("fold(l1, sum, 0) => %d\n", listSum);
 
 	int minimum = fold(l1, min, INT_MAX);
-	printf("fold(l1, min, 1) => %d\n", minimum);
+	printf("fold(l1, min, %d) => %d\n", INT_MAX, minimum);
 }
 
 //////////////////////////////////////////////////
