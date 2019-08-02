@@ -7,6 +7,11 @@ Code for COMP2521 [19t2]
 - [Computerphile video on recursion](https://www.youtube.com/watch?v=Mv9NEXX1VHc)
 - [GDB Tutorial](https://www.youtube.com/watch?v=bWH-nL7v5F4)
 
+## Quizzes
+These quizzes are from a previous session (18x1). Enjoy!
+- [Kahoot Quiz 1](https://play.kahoot.it/#/?quizId=8bacaee3-fa34-49ec-902c-32d910186ba3)
+- [Kahoot Quiz 2](https://play.kahoot.it/#/?quizId=2ca83624-6b14-4de6-94ce-28b2d601ef15)
+
 ## Midterm Exam
 
 ### Preparation Tips
