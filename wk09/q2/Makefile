@@ -8,3 +8,7 @@ all: testIsStableSort
 
 testIsStableSort: $(SRC_FILES)
 	$(CC) $(CFLAGS) -o testIsStableSort $(SRC_FILES)
+
+.PHONY: clean
+clean:
+	rm -f testIsStableSort

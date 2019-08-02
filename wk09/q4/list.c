@@ -9,8 +9,62 @@
 
 static List newNode(int value);
 
+static List copyList(List ls);
+static List listMax(List ls);
+static List listUnlinkNode(List ls, List node);
+
+// We copy the original list. Then we repeatedly remove
+// the  node containing the largest value from the copy
+// list and add it to the beginning of a new list until
+// the  copy  list  is  empty.  We should end up with a
+// sorted list, which we just return.
 List selectSort(List ls) {
-	return NULL;
+	List copy = copyList(ls);
+	List sorted = NULL;
+	while (copy != NULL) {
+		List max = listMax(copy);
+		copy = listUnlinkNode(copy, max);
+		max->next = sorted;
+		sorted = max;
+	}
+	return sorted;
+}
+
+// Produces a copy of the given list
+static List copyList(List ls) {
+	if (ls == NULL) {
+		return NULL;
+	} else {
+		List new = newNode(ls->value);
+		new->next = copyList(ls->next);
+		return new;
+	}
+}
+
+// Returns a pointer to the node containing the largest
+// element of the given list.
+static List listMax(List ls) {
+	List max = ls;
+	for (List curr = ls; curr != NULL; curr = curr->next) {
+		if (curr->value > max->value) {
+			max = curr;
+		}
+	}
+	return max;
+}
+
+// Removes a given node from a list without freeing it.
+static List listUnlinkNode(List ls, List node) {
+	// node  SHOULD  be in the list, so if we reach the
+	// end of the list, something is wrong
+	assert(ls != NULL);
+
+	if (ls == node) {
+		return ls->next;
+	} else {
+		ls->next = listUnlinkNode(ls->next, node);
+		return ls;
+	}
 }
 
 //////////////////////////////////////////////////
