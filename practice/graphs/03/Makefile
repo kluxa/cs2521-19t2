@@ -13,9 +13,9 @@ testVerifyHamiltonPath: $(QUESTION_FILES)
 	$(CC) $(CFLAGS) -o testVerifyHamiltonPath $(QUESTION_FILES)
 
 solution: solution/verifyHamiltonPath.c $(SOLUTION_FILES)
-	$(CC) $(CFLAGS) -o testVerifyHamiltonPath $(SOLUTION_FILES)
+	$(CC) $(CFLAGS) -o solution/testVerifyHamiltonPath $(SOLUTION_FILES)
 
 .PHONY: clean
 clean:
-	rm -f testVerifyHamiltonPath
+	rm -f testVerifyHamiltonPath solution/testVerifyHamiltonPath
 

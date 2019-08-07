@@ -13,9 +13,9 @@ testGetTour: $(QUESTION_FILES)
 	$(CC) $(CFLAGS) -o testGetTour $(QUESTION_FILES)
 
 solution: $(SOLUTION_FILES)
-	$(CC) $(CFLAGS) -o testGetTour $(SOLUTION_FILES)
+	$(CC) $(CFLAGS) -o solution/testGetTour $(SOLUTION_FILES)
 
 .PHONY: clean
 clean:
-	rm -f testGetTour
+	rm -f testGetTour solution/testGetTour
 
