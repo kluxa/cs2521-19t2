@@ -9,7 +9,7 @@ static bool allVerticesVisited(Graph g, Vertex *path, int pathLength);
 
 bool verifyHamiltonPath(Graph g, Vertex *path, int pathLength) {
 	// Check path length
-	if (pathLength != N) {
+	if (pathLength != GraphNumVertices(g)) {
 		return false;
 	}
 	
@@ -41,7 +41,7 @@ static bool allEdgesExistInGraph(Graph g, Vertex *path, int pathLength) {
 
 // Check all the vertices are visited
 static bool allVerticesVisited(Graph g, Vertex *path, int pathLength) {
-	// Check all vertices are visited
+	int N = GraphNumVertices(g);
 	bool visited[N];
 	for (Vertex v = 0; v < N; v++) {
 		visited[v] = false;
@@ -50,7 +50,7 @@ static bool allVerticesVisited(Graph g, Vertex *path, int pathLength) {
 		visited[path[i]] = true;
 	}
 	for (Vertex v = 0; v < N; v++) {
-		if (!visited[path[i]]) {
+		if (!visited[path[v]]) {
 			return false;
 		}
 	}
