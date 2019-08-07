@@ -14,6 +14,9 @@ Vertex *getTour(Graph g, int *tourLength) {
 	// 2N - 1, where N is the number of vertices
 	Vertex *tour = malloc(2 * nV * sizeof(Vertex));
 	bool visited[nV];
+	for (Vertex v = 0; v < nV; v++) {
+		visited[v] = false;
+	}
 	
 	// We choose to start at 0, but you could start anywhere
 	*tourLength = 0;
@@ -25,11 +28,11 @@ Vertex *getTour(Graph g, int *tourLength) {
 // Very similar to DFS
 static void getTourRecurse(Graph g, Vertex v, bool *visited,
                            Vertex *tour, int *tourLength) {
-    // Visiting v for the first time
-    tour[(*tourLength)++] = v;
-    visited[v] = true;
+	// Visiting v for the first time
+	tour[(*tourLength)++] = v;
+	visited[v] = true;
     
-    int nV = GraphNumVertices(g);
+	int nV = GraphNumVertices(g);
 	for (Vertex w = 0; w < nV; w++) {
 		if (GraphIsAdjacent(g, v, w) && visited[w] == false) {
 			getTourRecurse(g, w, visited, tour, tourLength);

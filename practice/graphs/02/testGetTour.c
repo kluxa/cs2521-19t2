@@ -47,7 +47,7 @@ int main(void) {
 	
 	// Test 5
 	bool edges5[5][5] = {
-	//   0  1  2  3  4
+	//	 0  1  2  3  4
 		{0, 1, 0, 0, 0}, // 0
 		{1, 0, 1, 1, 0}, // 1
 		{0, 1, 0, 0, 0}, // 2
@@ -103,8 +103,8 @@ static void fail(const char *format, ...) {
 	nFailed++;
 	printf("\033[33m");
 	
-    va_list args;
-    va_start(args, format);
+	va_list args;
+	va_start(args, format);
 	vprintf(format, args);
 	va_end(args);
 	
