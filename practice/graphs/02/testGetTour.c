@@ -9,7 +9,7 @@
 
 Vertex *getTour(Graph g, int *tourLength);
 
-static void test(int nV, bool edges[nV][nV]);
+static void test(Graph g);
 static void showSummary(void);
 
 int main(void) {
@@ -18,7 +18,9 @@ int main(void) {
 		{0, 1},
 		{1, 0}
 	};
-	test(2, edges1);
+	Graph g1 = GraphNewFromMatrix(2, edges1);
+	test(g1);
+	GraphFree(g1);
 	
 	// Test 2
 	bool edges2[3][3] = {
@@ -26,7 +28,9 @@ int main(void) {
 		{1, 0, 1},
 		{0, 1, 0}
 	};
-	test(3, edges2);
+	Graph g2 = GraphNewFromMatrix(3, edges2);
+	test(g2);
+	GraphFree(g2);
 	
 	// Test 3
 	bool edges3[3][3] = {
@@ -34,7 +38,9 @@ int main(void) {
 		{1, 0, 1},
 		{1, 1, 0}
 	};
-	test(3, edges3);
+	Graph g3 = GraphNewFromMatrix(3, edges3);
+	test(g3);
+	GraphFree(g3);
 	
 	// Test 4
 	bool edges4[4][4] = {
@@ -43,7 +49,9 @@ int main(void) {
 		{0, 1, 0, 1},
 		{1, 0, 1, 0}
 	};
-	test(4, edges4);
+	Graph g4 = GraphNewFromMatrix(4, edges4);
+	test(g4);
+	GraphFree(g4);
 	
 	// Test 5
 	bool edges5[5][5] = {
@@ -54,7 +62,9 @@ int main(void) {
 		{0, 1, 0, 0, 1}, // 3
 		{0, 0, 0, 1, 0}  // 4
 	};
-	test(5, edges5);
+	Graph g5 = GraphNewFromMatrix(5, edges5);
+	test(g5);
+	GraphFree(g5);
 	
 	// TODO - Add your own tests here
 	
@@ -76,10 +86,9 @@ static int nTests = 0;
 static int nPassed = 0;
 static int nFailed = 0;
 
-static void test(int nV, bool edges[nV][nV]) {
+static void test(Graph g) {
 	printf("\nTest %2d\n", ++nTests);
 	
-	Graph g = GraphNewFromMatrix(nV, edges);
 	GraphDump(g, stdout);
 	
 	int tourLength = 0;
@@ -96,7 +105,6 @@ static void test(int nV, bool edges[nV][nV]) {
 	}
 	
 	free(tour);
-	GraphFree(g);
 }
 
 static void fail(const char *format, ...) {

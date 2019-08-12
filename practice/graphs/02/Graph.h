@@ -7,6 +7,10 @@
 #include <stdbool.h>
 
 typedef int Vertex;
+typedef struct {
+	Vertex v;
+	Vertex w;
+} Edge;
 
 typedef struct graph *Graph;
 
@@ -26,6 +30,22 @@ Graph GraphNew(int nV);
  * @pre - for all v, edges[v][v] is false
  */
 Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]);
+
+/**
+ * Creates a new Graph with edges as given in the array of edges.
+ * @param nV - the number of vertices
+ * @param nE - the number of edges
+ * @param edges - an  array of edges, where each edge is an array of two
+ *                vertices
+ * @pre - for all edges {v, w}, v != w
+ *
+ * Example Usage:
+ *  Edge edges[] = {
+ *  	{0, 1}, {1, 2}, {2, 3}, {3, 0}
+ *  };
+ *  Graph g = GraphNewFromEdgeArray(4, 4, edges);
+ */
+Graph GraphNewFromEdgeArray(int nV, int nE, Edge *edges);
 
 ////////////////////////////////////////////////////////////////////////
 // Destructors

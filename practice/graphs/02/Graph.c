@@ -38,8 +38,30 @@ Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]) {
 	Graph g = doGraphNew(nV);
 	for (int i = 0; i < nV; i++) {
 		for (int j = 0; j < nV; j++) {
-			g->edges[i][j] = edges[i][j];
+			if (edges[i][j] == true) {
+				assert(i != j);
+				assert(edges[j][i] == true);
+				g->edges[i][j] = true;
+			} else {
+				g->edges[i][j] = false;
+			}
 		}
+	}
+	
+	return g;
+}
+
+Graph GraphNewFromEdgeArray(int nV, int nE, Edge *edges) {
+	assert(nV > 0);
+	assert(nE >= 0);
+	
+	Graph g = GraphNew(nV);
+	for (int i = 0; i < nE; i++) {
+		Vertex v = edges[i].v;
+		Vertex w = edges[i].w;
+		assert(v != w);
+		g->edges[v][w] = true;
+		g->edges[w][v] = true;
 	}
 	
 	return g;
@@ -48,7 +70,7 @@ Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]) {
 static Graph doGraphNew(int nV) {
 	Graph g = malloc(sizeof(*g));
 	if (g == NULL) {
-		fprintf(stderr, "GraphNew: Couldn't allocate Graph!\n");
+		fprintf(stderr, "GraphNew: Insufficient memory!\n");
 		exit(EXIT_FAILURE);
 	}
 	
@@ -56,13 +78,13 @@ static Graph doGraphNew(int nV) {
 	
 	g->edges = malloc(nV * sizeof(bool *));
 	if (g->edges == NULL) {
-		fprintf(stderr, "GraphNew: Couldn't allocate Graph!\n");
+		fprintf(stderr, "GraphNew: Insufficient memory!\n");
 		exit(EXIT_FAILURE);
 	}
 	for (int i = 0; i < nV; i++) {
 		g->edges[i] = malloc(nV * sizeof(bool));
 		if (g->edges[i] == NULL) {
-			fprintf(stderr, "GraphNew: Couldn't allocate Graph!\n");
+			fprintf(stderr, "GraphNew: Insufficient memory!\n");
 			exit(EXIT_FAILURE);
 		}
 	}
