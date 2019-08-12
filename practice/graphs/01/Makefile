@@ -11,6 +11,7 @@ testGraph: testGraph.c Graph.c
 testGraphImproved: testGraph.c GraphImproved.c
 	$(CC) $(CFLAGS) -o testGraphImproved testGraph.c GraphImproved.c
 
+.PHONY: solution
 solution: testGraph.c solution/GraphImproved.c
 	$(CC) $(CFLAGS) -o solution/testGraphImproved testGraph.c solution/GraphImproved.c
 

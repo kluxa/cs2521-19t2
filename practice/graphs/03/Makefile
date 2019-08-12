@@ -12,6 +12,7 @@ all: testVerifyHamiltonPath
 testVerifyHamiltonPath: $(QUESTION_FILES)
 	$(CC) $(CFLAGS) -o testVerifyHamiltonPath $(QUESTION_FILES)
 
+.PHONY: solution
 solution: solution/verifyHamiltonPath.c $(SOLUTION_FILES)
 	$(CC) $(CFLAGS) -o solution/testVerifyHamiltonPath $(SOLUTION_FILES)
 
