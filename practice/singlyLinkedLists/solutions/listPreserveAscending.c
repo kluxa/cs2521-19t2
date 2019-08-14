@@ -4,20 +4,43 @@
 
 #include "list.h"
 
-/**
- * Deletes  values  from  the list that do not preserve ascending order,
- * starting from the beginning of the list.
- *
- * Examples:
- *             input list           |     resulting list
- * ---------------------------------+-----------------------
- *  2 -> 4 -> 5 -> 8 -> X           | 2 -> 4 -> 5 -> 8 -> X
- *  5 -> 7 -> 3 -> 7 -> 8 -> 2 -> X | 5 -> 7 -> 7 -> 8 -> X
- *  5 -> 2 -> 1 -> 8 -> X           | 5 -> 8 -> X
- *  5 -> 2 -> 4 -> X                | 5 -> X
- *  X                               | X
- *  3 -> 1 -> 6 -> 4 -> 8 -> 7 -> X | 3 -> 6 -> 8 -> X
- */
+#define RECURSIVE 1
+
+#if RECURSIVE //////////////////////////////////////////////////////////
+
+static Node doListPreserveAscending(Node head);
+
+void listPreserveAscending(List l) {
+	l->head = doListPreserveAscending(l->head);
+}
+
+static Node doListPreserveAscending(Node head) {
+	// An  empty  list  or  a  list  with  only  one value is already in
+	// ascending order.
+	if (head == NULL || head->next == NULL) {
+		return head;
+	}
+
+	// If the first value is larger than the second value, we remove the
+	// second  value,  and recursively call the function with the *same*
+	// head  node,  since  we need to again compare the first value with
+	// the second value, which has now changed.
+	if (head->value > head->next->value) {
+		Node temp = head->next;
+		head->next = temp->next;
+		free(temp);
+		return doListPreserveAscending(head);
+	
+	// Otherwise,  the  first  two  values  are  in  order,  so call the
+	// function recursively on the next node.
+	} else {
+		head->next = doListPreserveAscending(head->next);
+		return head;
+	}
+}
+
+#else // ITERATIVE /////////////////////////////////////////////////////
+
 void listPreserveAscending(List l) {
 	if (l->head == NULL) {
 		return;
@@ -38,3 +61,4 @@ void listPreserveAscending(List l) {
 	}
 }
 
+#endif
