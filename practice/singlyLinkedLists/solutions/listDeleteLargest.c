@@ -9,26 +9,10 @@
 
 static int listGetLargest(List l);
 
-#if RECURSIVE
-static Node listDeleteOne(Node curr, int value);
-#endif
+#if RECURSIVE //////////////////////////////////////////////////////////
 
-/**
- * Deletes  the  largest  value from the list and returns the value that
- * was deleted.
- * If  the  list  is empty, the function should exit with an appropriate
- * error message (not tested).
- * If  the  largest  value  occurs more than once, delete only the first
- * instance.
- *
- * Examples:
- *        input list      | expected return value |  resulting list
- * -----------------------+-----------------------+------------------
- *  3 -> 7 -> 2 -> 7 -> X |           7           | 3 -> 2 -> 7 -> X
- *  4 -> 5 -> 7 -> 1 -> X |           7           | 4 -> 5 -> 1 -> X
- *  8 -> 4 -> 1 -> X      |           8           | 4 -> 1 -> X
- *  5 -> X                |           5           | X
- */
+static Node listDeleteOnce(Node curr, int value);
+
 int listDeleteLargest(List l) {
 	if (l->head == NULL) {
 		fprintf(stderr, "listDeleteLargest: empty list\n");
@@ -36,45 +20,13 @@ int listDeleteLargest(List l) {
 	}
 	
 	int max = listGetLargest(l);
-	
-	#if RECURSIVE
-	l->head = listDeleteOne(l->head, max);
-	
-	#else // Below is the iterative solution
-	Node prev = NULL;
-	Node curr = l->head;
-	while (curr->value != max) {
-		prev = curr;
-		curr = curr->next;
-	}
-	
-	if (curr == l->head) {
-		l->head = curr->next;
-	} else {
-		prev->next = curr->next;
-	}
-	free(curr);
-	#endif
-	
+	l->head = listDeleteOnce(l->head, max);
 	return max;
 }
 
-static int listGetLargest(List l) {
-	int max = l->head->value;
-	Node curr = l->head;
-	while (curr != NULL) {
-		if (curr->value > max) {
-			max = curr->value;
-		}
-		curr = curr->next;
-	}
-	return max;
-}
-
-#if RECURSIVE
 // Uses recursion to delete the first instance of a value from the list,
 // and return the head of the list.
-static Node listDeleteOne(Node curr, int value) {
+static Node listDeleteOnce(Node curr, int value) {
 	if (curr == NULL) {
 		return NULL;
 	}
@@ -88,9 +40,49 @@ static Node listDeleteOne(Node curr, int value) {
 		free(curr);
 		return temp;
 	} else {
-		curr->next = listDeleteOne(curr->next, value);
+		curr->next = listDeleteOnce(curr->next, value);
 		return curr;
 	}
 }
-#endif
 
+#else // ITERATIVE /////////////////////////////////////////////////////
+
+int listDeleteLargest(List l) {
+	if (l->head == NULL) {
+		fprintf(stderr, "listDeleteLargest: empty list\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	int max = listGetLargest(l);
+	
+	Node prev = NULL;
+	Node curr = l->head;
+	while (curr->value != max) {
+		prev = curr;
+		curr = curr->next;
+	}
+	
+	if (curr == l->head) {
+		l->head = curr->next;
+	} else {
+		prev->next = curr->next;
+	}
+	free(curr);
+	
+	return max;
+}
+
+#endif /////////////////////////////////////////////////////////////////
+
+// Helper function
+static int listGetLargest(List l) {
+	int max = l->head->value;
+	Node curr = l->head;
+	while (curr != NULL) {
+		if (curr->value > max) {
+			max = curr->value;
+		}
+		curr = curr->next;
+	}
+	return max;
+}

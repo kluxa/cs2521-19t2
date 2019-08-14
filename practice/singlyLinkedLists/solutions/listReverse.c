@@ -4,9 +4,6 @@
 
 #include "list.h"
 
-/**
- * Reverses the given list.
- */
 void listReverse(List l) {
 	Node prev = NULL;
 	Node curr = l->head;
@@ -18,4 +15,3 @@ void listReverse(List l) {
 	}
 	l->head = prev;
 }
-

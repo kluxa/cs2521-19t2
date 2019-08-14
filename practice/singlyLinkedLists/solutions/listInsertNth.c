@@ -4,60 +4,18 @@
 
 #include "list.h"
 
-#define RECURSIVE 0
-
-#if RECURSIVE
-static Node doListInsertNth(Node curr, int value, int n);
-#endif
+#define RECURSIVE 1
 
 static Node newNode(int value);
 
-/**
- * Inserts a value into the n'th position in the list.
- * If n is 0, the new value is inserted at the beginning of the list.
- * If n is equal to the length of the list, the new value is inserted at
- * the end of the list.
- * Otherwise,  the  new value should be inserted somewhere in the middle
- * of the list, depending on the value of n.
- * You can assume n is between 0 and N (inclusive).
- *
- * Examples:
- *        input list      |  value  |  n  |       resulting list
- * -----------------------+---------+-----+----------------------------
- *  4 -> 6 -> 1 -> 8 -> X |    5    |  0  | 5 -> 4 -> 6 -> 1 -> 8 -> X
- *  4 -> 6 -> 1 -> 8 -> X |    5    |  2  | 4 -> 6 -> 5 -> 1 -> 8 -> X
- *  4 -> 6 -> 1 -> 8 -> X |    5    |  4  | 4 -> 6 -> 1 -> 8 -> 5 -> X
- *  1 -> X                |    8    |  0  | 8 -> 1 -> X
- *  1 -> X                |    4    |  1  | 1 -> 4 -> X
- *  X                     |    3    |  0  | 3 -> X
- */
+#if RECURSIVE //////////////////////////////////////////////////////////
+
+static Node doListInsertNth(Node curr, int value, int n);
+
 void listInsertNth(List l, int value, int n) {
-	#if RECURSIVE
 	l->head = doListInsertNth(l->head, value, n);
-	
-	#else // ITERATIVE
-	Node new = newNode(value);
-	if (n == 0) {
-		new->next = l->head;
-		l->head = new;
-	} else {
-		Node curr = l->head;
-		int i = 0;
-		// You could use a prev here, but
-		// using just a curr and stopping
-		// at the (n - 1)th node leads to
-		// shorter code
-		while (i != n - 1) {
-			curr = curr->next;
-			i++;
-		}
-		new->next = curr->next;
-		curr->next = new;
-	}
-	#endif
 }
 
-#if RECURSIVE
 static Node doListInsertNth(Node curr, int value, int n) {
 	if (curr == NULL && n != 0) {
 		fprintf(stderr, "listInsertNth: n out of range\n");
@@ -81,8 +39,33 @@ static Node doListInsertNth(Node curr, int value, int n) {
 		return curr;
 	}
 }
-#endif
 
+#else // ITERATIVE /////////////////////////////////////////////////////
+
+void listInsertNth(List l, int value, int n) {
+	Node new = newNode(value);
+	if (n == 0) {
+		new->next = l->head;
+		l->head = new;
+	} else {
+		Node curr = l->head;
+		int i = 0;
+		// You could use a prev here, but
+		// using just a curr and stopping
+		// at the (n - 1)th node leads to
+		// shorter code
+		while (i != n - 1) {
+			curr = curr->next;
+			i++;
+		}
+		new->next = curr->next;
+		curr->next = new;
+	}
+}
+
+#endif /////////////////////////////////////////////////////////////////
+
+// Helper function
 static Node newNode(int value) {
 	Node n = malloc(sizeof(*n));
 	if (n == NULL) {
@@ -94,4 +77,3 @@ static Node newNode(int value) {
 	n->next = NULL;
 	return n;
 }
-

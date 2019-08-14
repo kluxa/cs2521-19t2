@@ -6,18 +6,6 @@
 
 static Node listDelete(Node curr, int value);
 
-/**
- * Deletes  all  duplicate  values from the list. If the list contains a
- * duplicate  value,  the first instance  of  that  value  should remain
- * in the list, while all other instances should be removed.
- *
- * Examples:
- *             input list           |     resulting list
- * ---------------------------------+-----------------------
- *  4 -> 3 -> 5 -> 4 -> 3 -> X      | 4 -> 3 -> 5 -> X
- *  8 -> 2 -> 1 -> 3 -> X           | 8 -> 2 -> 1 -> 3 -> X
- *  4 -> 5 -> 4 -> 4 -> 7 -> 7 -> X | 4 -> 5 -> 7 -> X
- */
 void listDeleteDuplicates(List l) {
 	// The general strategy is this:  For every node, delete all
 	// nodes *after* it that have the same value.
@@ -44,8 +32,8 @@ static Node listDelete(Node curr, int value) {
 	// the given value by calling this function recursively.
 	curr->next = listDelete(curr->next, value);
 	
-	// QUESTION 2: What happens if just had
-	//               listDelete(curr->next, value);
+	// QUESTION 2: What happens if we just had
+	//                listDelete(curr->next, value);
 	// and did not assign the return value to curr->next?
 	
 	// Now we deal with the current node. If it has the value we
@@ -74,4 +62,3 @@ static Node listDelete(Node curr, int value) {
 // 3. No, because the recursive call
 //              curr->next = listDelete(curr->next, value);
 //    ensures that the value does not occur in the rest of the list.
-
