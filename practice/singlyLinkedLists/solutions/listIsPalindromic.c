@@ -10,6 +10,7 @@ static int listGetLength(List l);
 /**
  * Returns  true  if the given list is palindromic, and false otherwise.
  * An empty list is considered to be palindromic.
+ * Hint: use listKthLast
  */
 bool listIsPalindromic(List l) {
 	Node curr = l->head;
@@ -43,4 +44,3 @@ static int listGetLength(List l) {
 	}
 	return length;
 }
-
