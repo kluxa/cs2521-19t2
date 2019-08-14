@@ -57,12 +57,6 @@ int listDeleteNth(List l, int n);
 bool listIsAscending(List l);
 
 /**
- * Deletes  values  from  the list that do not preserve ascending order,
- * starting from the beginning of the list.
- */
-void listPreserveAscending(List l);
-
-/**
  * Removes  the  second  instance of the duplicate in the list (if there
  * is  one),  and returns the value that was deleted, or NO_DUPLICATE if
  * there  was  no  duplicate.  You  can assume that there is at most one
@@ -90,6 +84,12 @@ void listAppend(List l1, List l2);
  * k-periodic. You can assume k is positive.
  */
 bool listIsKPeriodic(List l, int k);
+
+/**
+ * Deletes  values  from  the list that do not preserve ascending order,
+ * starting from the beginning of the list.
+ */
+void listPreserveAscending(List l);
 
 /**
  * Returns the k'th last element in the list. You can assume that k will
@@ -132,17 +132,6 @@ List listZip(List l1, List l2);
  * be sorted (in ascending order).
  */
 List listMergeSorted(List l1, List l2);
-
-/**
- * Deletes all values that occur in both lists from both lists.
- */
-void listDeleteIntersection(List l1, List l2);
-
-/**
- * Delete all values in the list that are an integer multiple of another
- * value in the list.
- */
-void listDeleteMultiples(List l);
 
 ////////////////////////////////////////////////////////////////////////
 // Utility Functions
