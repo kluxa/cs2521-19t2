@@ -22,8 +22,7 @@
  *  X                     | X                     | X
  */
 List listZip(List l1, List l2) {
-	(void) l1;
-	(void) l2;
+	// TODO
 	return NULL;
 }
 

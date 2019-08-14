@@ -23,8 +23,7 @@
  *  4 -> X                |  0  |       4        | X
  */
 int listDeleteNth(List l, int n) {
-	(void) l;
-	(void) n;
+	// TODO
 	return 0;
 }
 

@@ -10,8 +10,7 @@
  * that the list contains at least one element (i.e., it is not empty).
  */
 int listKthLast(List l, int k) {
-	(void) l;
-	(void) k;
+	// TODO
 	return 0;
 }
 

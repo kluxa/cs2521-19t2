@@ -26,8 +26,7 @@
  *  2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> X |    7    |       true
  */
 bool listIsKPeriodic(List l, int k) {
-	(void) l;
-	(void) k;
+	// TODO
 	return false;
 }
 

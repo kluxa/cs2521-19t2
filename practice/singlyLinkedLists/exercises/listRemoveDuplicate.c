@@ -7,7 +7,7 @@
 /**
  * Removes  the  second  instance of the duplicate in the list (if there
  * is  one),  and returns the value that was deleted, or NO_DUPLICATE if
- * there was no duplicate. You can assume that there is at most one
+ * there  was  no  duplicate.  You  can assume that there is at most one
  * duplicate value.
  *
  * Examples:
@@ -21,7 +21,7 @@
  *  X                     |  NO_DUPLICATE  | X
  */
 int listRemoveDuplicate(List l) {
-	(void) l;
+	// TODO
 	return NO_DUPLICATE;
 }
 

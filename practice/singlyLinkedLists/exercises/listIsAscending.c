@@ -10,7 +10,7 @@
  * not. An empty list is considered to be ascending.
  */
 bool listIsAscending(List l) {
-	(void) l;
+	// TODO
 	return false;
 }
 

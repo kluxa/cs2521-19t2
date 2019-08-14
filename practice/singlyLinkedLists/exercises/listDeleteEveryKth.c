@@ -19,7 +19,6 @@
  *  2 -> 8 -> 1 -> 9 -> 0 -> 2 -> X |  3  | 2 -> 8 -> 9 -> 0 -> X
  */
 void listDeleteEveryKth(List l, int k) {
-	(void) l;
-	(void) k;
+	// TODO
 }
 

@@ -25,8 +25,6 @@
  *  X                     |    3    |  0  | 3 -> X
  */
 void listInsertNth(List l, int value, int n) {
-	(void) l;
-	(void) value;
-	(void) n;
+	// TODO
 }
 

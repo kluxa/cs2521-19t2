@@ -17,6 +17,6 @@
  *  4 -> 5 -> 4 -> 4 -> 7 -> 7 -> X | 4 -> 5 -> 7 -> X
  */
 void listDeleteDuplicates(List l) {
-	(void) l;
+	// TODO
 }
 

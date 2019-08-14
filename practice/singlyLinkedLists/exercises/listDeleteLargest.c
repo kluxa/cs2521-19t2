@@ -21,9 +21,7 @@
  *  5 -> X                |           5           | X
  */
 int listDeleteLargest(List l) {
-	(void) l; // This is to prevent 'unused variables' errors when
-	          // compiling. Delete this after you add code.
-	
+	// TODO
 	return 0;
 }
 
