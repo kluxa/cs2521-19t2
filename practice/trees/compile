@@ -5,6 +5,7 @@ COMMON_DIR="common/"
 EXERCISES_DIR="exercises/"
 SOLUTIONS_DIR="solutions/"
 TEST_DRIVERS_DIR="testDrivers/"
+TEST_EXECUTABLE="./test"
 
 usage()
 {
@@ -48,7 +49,7 @@ check_exercise_solution_exists()
 compile_test_driver()
 {
 	check_test_driver_exists "$1"
-	gcc -Wall -Werror -std=gnu99 -g -o testTree "$COMMON_DIR"/*.[co] "$TEST_DRIVERS_DIR/test${1^}.c" "$2/$1.c" || exit 1
+	gcc -Wall -Werror -std=gnu99 -g -o "$TEST_EXECUTABLE" "$COMMON_DIR"/*.[co] "$TEST_DRIVERS_DIR/test${1^}.c" "$2/$1.c" || exit 1
 }
 
 # $1: exercise name
@@ -96,5 +97,5 @@ fi
 
 compile_test_driver "$exercise_name" "$source_dir"
 
-echo "Compiled successfully! You can now test your $exercise_name function by running ./testTree"
+echo "Compiled successfully! You can now test your $exercise_name function by running $TEST_EXECUTABLE"
 
