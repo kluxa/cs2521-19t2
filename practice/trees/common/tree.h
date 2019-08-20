@@ -140,6 +140,12 @@ Tree bstInorderSuccessor(Tree bst, int num);
 bool treeIsBst(Tree t);
 
 /**
+ * Returns  true  if  the given tree is a max heap, and false otherwise.
+ * Assumes that the given tree is complete.
+ */
+bool treeIsMaxHeap(Tree t);
+
+/**
  * Returns  the  deepest  node in the given tree, or NULL if the tree is
  * empty. If there are multiple deepest nodes, return the rightmost one.
  */

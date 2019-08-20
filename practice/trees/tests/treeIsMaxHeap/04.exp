@@ -1,0 +1,12 @@
+Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: 
+Tree:
+
+      8
+     / \
+    /   \
+   /     \
+  6       7
+ / \     / \
+2   9   4   5
+
+treeIsMaxHeap returned: FALSE
