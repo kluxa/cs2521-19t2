@@ -67,6 +67,16 @@ Graph GraphNewFromEdgeArray(int nV, int nE, Edge *edges) {
 	return g;
 }
 
+Graph GraphCopy(Graph g) {
+	Graph copy = doGraphNew(g->nV);
+	for (int i = 0; i < g->nV; i++) {
+		for (int j = 0; j < g->nV; j++) {
+			copy->edges[i][j] = g->edges[i][j];
+		}
+	}
+	return copy;
+}
+
 static Graph doGraphNew(int nV) {
 	Graph g = malloc(sizeof(*g));
 	if (g == NULL) {
@@ -144,51 +154,51 @@ void GraphDump(Graph g, FILE *fp) {
 
 ////////
 // BFS
-Vertex *GraphBfs(Graph g, Vertex src) {
-	Vertex *pred = malloc(g->nV * sizeof(Vertex));
-	assert(pred != NULL);
-	for (Vertex i = 0; i < g->nV; i++) {
-		pred[i] = -1; //  not visited
-	}
-	pred[src] = src;
+Traversal GraphBfs(Graph g, Vertex src) {
+	assert(g != NULL);
+	assert(validVertex(g, src));
+	
+	Traversal t = newTraversal(g, src);
+	t.pred[src] = src;
 	
 	Queue q = QueueNew();
 	QueueEnqueue(q, src);
 	while (!QueueIsEmpty(q)) {
 		Vertex v = QueueDequeue(q);
+		t.visitOrder[t.numVisited++] = v;
 		for (Vertex w = 0; w < g->nV; w++) {
-			if (g->edges[v][w] == true && pred[w] == -1) {
-				pred[w] = v;
+			if (g->edges[v][w] == true && t.pred[w] == -1) {
+				t.pred[w] = v;
 				QueueEnqueue(q, w);
 			}
 		}
 	}
 	
 	QueueDrop(q);
-	return pred;
+	return t;
 }
 
 ////////
 // DFS
-static void dfsRecurse(Graph g, Vertex v, Vertex *pred);
+static void dfsRecurse(Graph g, Vertex v, Traversal *t);
 
-Vertex *GraphDfs(Graph g, Vertex src) {
-	Vertex *pred = malloc(g->nV * sizeof(Vertex));
-	assert(pred != NULL);
-	for (Vertex v = 0; v < g->nV; v++) {
-		pred[v] = -1; // not visited
-	}
-	pred[src] = src;
+Traversal GraphDfs(Graph g, Vertex src) {
+	assert(g != NULL);
+	assert(validVertex(g, src));
 	
-	dfsRecurse(g, src, pred);
-	return pred;
+	Traversal t = newTraversal(g, src);
+	t.pred[src] = src;
+	
+	dfsRecurse(g, src, &t);
+	return t;
 }
 
-static void dfsRecurse(Graph g, Vertex v, Vertex *pred) {
+static void dfsRecurse(Graph g, Vertex v, Traversal *t) {
+	t->visitOrder[t->numVisited++] = v;
 	for (Vertex w = 0; w < g->nV; w++) {
-		if (g->edges[v][w] == true && pred[w] != -1) {
-			pred[w] = v;
-			dfsRecurse(g, w, pred);
+		if (g->edges[v][w] == true && t->pred[w] != -1) {
+			t->pred[w] = v;
+			dfsRecurse(g, w, t);
 		}
 	}
 }
@@ -198,5 +208,25 @@ static void dfsRecurse(Graph g, Vertex v, Vertex *pred) {
 
 static bool validVertex(Graph g, Vertex v) {
 	return (v >= 0 && v < g->nV);
+}
+
+static Traversal newTraversal(Graph g, Vertex src) {
+	Traversal t = {
+		.src        = src,
+		.pred       = malloc(g->nV * sizeof(Vertex)),
+		.visitOrder = malloc(g->nV * sizeof(Vertex)),
+		.numVisited = 0
+	};
+	
+	if (t.pred == NULL || t.visitOrder == NULL) {
+		fprintf(stderr, "newTraversal: Insufficient memory!\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	for (Vertex v = 0; v < g->nV; v++) {
+		t.pred[v] = -1;
+	}
+	
+	return t;
 }
 

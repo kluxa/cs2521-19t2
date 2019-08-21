@@ -18,12 +18,12 @@ typedef struct graph *Graph;
 // Constructors
 
 /**
- * Creates a new Graph with the given number of vertices and no edges.
+ * Creates a new graph with the given number of vertices and no edges.
  */
 Graph GraphNew(int nV);
 
 /**
- * Creates a new Graph with edges as given in the boolean matrix.
+ * Creates a new graph with edges as given in the boolean matrix.
  * @param nV - the number of vertices
  * @param edges - a  matrix of booleans indicating which edges the graph
  *                should contain (true = edge, false = no edge)
@@ -32,7 +32,7 @@ Graph GraphNew(int nV);
 Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]);
 
 /**
- * Creates a new Graph with edges as given in the array of edges.
+ * Creates a new graph with edges as given in the array of edges.
  * @param nV - the number of vertices
  * @param nE - the number of edges
  * @param edges - an  array of edges, where each edge is an array of two
@@ -47,12 +47,16 @@ Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]);
  */
 Graph GraphNewFromEdgeArray(int nV, int nE, Edge *edges);
 
+/**
+ * Creates a copy of the given graph.
+ */
+Graph GraphCopy(Graph g);
+
 ////////////////////////////////////////////////////////////////////////
 // Destructors
 
 /**
- * Frees all the memory allocated for the given Graph.
- * @param g - the graph to be freed
+ * Frees all the memory allocated for the given graph.
  */
 void GraphFree(Graph g);
 
@@ -60,12 +64,12 @@ void GraphFree(Graph g);
 // General Graph Functions
 
 /**
- * Returns the number of edges in the given Graph.
+ * Returns the number of vertices in the given graph.
  */
 int GraphNumVertices(Graph g);
 
 /**
- * Checks  whether two vertices are adjacent in the given Graph. Returns
+ * Checks  whether two vertices are adjacent in the given graph. Returns
  * true or false as appropriate.
  */
 bool GraphIsAdjacent(Graph g, Vertex v, Vertex w);
@@ -78,22 +82,42 @@ void GraphDump(Graph g, FILE *fp);
 ////////////////////////////////////////////////////////////////////////
 // Graph Search Algorithms
 
-/**
- * Performs  a  breadth-first  search  on  a graph starting at the given
- * vertex.
- * @returns - a dynamically allocated array of predecessor vertices. The
- *            predecessor of the starting vertex is set to be itself. If
- *            a vertex is unreachable, its predecessor is set to -1.
- */
-Vertex *GraphBfs(Graph g, Vertex src);
+typedef struct {
+	int     src;
+	Vertex *pred;
+	Vertex *visitOrder;
+	int     numVisited;
+} Traversal;
 
 /**
- * Performs a depth-first search on a graph starting at the given vertex
- * @returns - a dynamically allocated array of predecessor vertices. The
- *            predecessor of the starting vertex is set to be itself. If
- *            a vertex is unreachable, its predecessor is set to -1.
+ * Performs  a  breadth-first  search on the graph starting at the given
+ * vertex.
+ * @returns - a  struct  containing information about the traversal with
+ *            these fields:
+ *            src        - the starting vertex
+ *            pred       - a  dynamically allocated array of predecessor
+ *                         vertices.  The  predecessor  of src is set to
+ *                         be itself.  If  a  vertex is unreachable, its
+ *                         predecessor is set to -1.
+ *            visitOrder - the order in which the vertices were visited
+ *            numVisited - the number of vertices that were visited
  */
-Vertex *GraphDfs(Graph g, Vertex src);
+Traversal GraphBfs(Graph g, Vertex src);
+
+/**
+ * Performs  a  depth-first  search  on  the graph starting at the given
+ * vertex.
+ * @returns - a  struct  containing information about the traversal with
+ *            these fields:
+ *            src        - the starting vertex
+ *            pred       - a  dynamically allocated array of predecessor
+ *                         vertices.  The  predecessor  of src is set to
+ *                         be itself.  If  a  vertex is unreachable, its
+ *                         predecessor is set to -1.
+ *            visitOrder - the order in which the vertices were visited
+ *            numVisited - the number of vertices that were visited
+ */
+Traversal GraphDfs(Graph g, Vertex src);
 
 #endif
 

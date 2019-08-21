@@ -1,4 +1,4 @@
-// Interface for an Undirected Graph ADT where vertices are identified
+// Interface  for  an Undirected Graph ADT where vertices are identified
 // by integers between 0 and N - 1, where N is the number of vertices.
 
 #ifndef GRAPH_H
@@ -11,36 +11,36 @@ typedef int Vertex;
 typedef struct graph *Graph;
 
 /**
- * Creates a new Graph with the given number of vertices and no edges.
+ * Creates a new graph with the given number of vertices and no edges.
  */
 Graph GraphNew(int nV);
 
 /**
- * Frees all the memory allocated for the given Graph.
+ * Frees all the memory allocated for the given graph.
  */
 void GraphFree(Graph g);
 
 /**
- * Returns the number of edges in the given Graph.
+ * Returns the number of vertices in the given graph.
  */
 int GraphNumVertices(Graph g);
 
 /**
- * Adds  an  undirected edge between two vertices to the given Graph. If
- * the edge already exists, this function does nothing.
- * @pre - v != w
+ * Adds  an  undirected edge between two vertices to the given graph. If
+ * the  edge  already  exists,  this function does nothing. Assumes that
+ * v != w.
  */
 void GraphAddEdge(Graph g, Vertex v, Vertex w);
 
 /**
- * Removes an undirected edge between two vertices from the given Graph.
- * If the edge does not exist, this function does nothing.
- * @pre - v != w
+ * Removes an undirected edge between two vertices from the given graph.
+ * If  the edge does not exist, this function does nothing. Assumes that
+ * v != w.
  */
 void GraphRemoveEdge(Graph g, Vertex v, Vertex w);
 
 /**
- * Checks  whether two vertices are adjacent in the given Graph. Returns
+ * Checks  whether two vertices are adjacent in the given graph. Returns
  * true or false as appropriate.
  */
 bool GraphIsAdjacent(Graph g, Vertex v, Vertex w);

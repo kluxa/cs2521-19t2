@@ -19,13 +19,13 @@ typedef struct graph *Graph;
 // Constructors
 
 /**
- * Creates  a  new Graph with the given number of vertices and no edges.
+ * Creates  a  new graph with the given number of vertices and no edges.
  * @param nV - the number of vertices
  */
 Graph GraphNew(int nV);
 
 /**
- * Creates a new Graph with edges as given in the boolean matrix.
+ * Creates a new graph with edges as given in the boolean matrix.
  * @param nV - the number of vertices
  * @param edges - a  matrix of booleans indicating which edges the graph
  *                should contain (true|1 = edge, false|0 = no edge)
@@ -43,7 +43,7 @@ Graph GraphNew(int nV);
 Graph GraphNewFromMatrix(int nV, bool edges[nV][nV]);
 
 /**
- * Creates a new Graph with edges as given in the array of edges.
+ * Creates a new graph with edges as given in the array of edges.
  * @param nV - the number of vertices
  * @param nE - the number of edges
  * @param edges - an  array of edges, where each edge is an array of two
@@ -62,7 +62,7 @@ Graph GraphNewFromEdgeArray(int nV, int nE, Edge *edges);
 // Destructors
 
 /**
- * Frees all the memory allocated for the given Graph.
+ * Frees all the memory allocated for the given graph.
  * @param g - the graph to be freed
  */
 void GraphFree(Graph g);
@@ -71,26 +71,26 @@ void GraphFree(Graph g);
 // General Graph Functions
 
 /**
- * Returns the number of edges in the given Graph.
+ * Returns the number of vertices in the given graph.
  */
 int GraphNumVertices(Graph g);
 
 /**
- * Adds  an  undirected edge between two vertices to the given Graph. If
- * the edge already exists, this function does nothing.
- * @pre - v != w
+ * Adds  an  undirected edge between two vertices to the given graph. If
+ * the  edge  already  exists,  this function does nothing. Assumes that
+ * v != w.
  */
 void GraphAddEdge(Graph g, Vertex v, Vertex w);
 
 /**
- * Removes an undirected edge between two vertices from the given Graph.
- * If the edge does not exist, this function does nothing.
- * @pre - v != w
+ * Removes an undirected edge between two vertices from the given graph.
+ * If  the edge does not exist, this function does nothing. Assumes that
+ * v != w.
  */
 void GraphRemoveEdge(Graph g, Vertex v, Vertex w);
 
 /**
- * Checks  whether two vertices are adjacent in the given Graph. Returns
+ * Checks  whether two vertices are adjacent in the given graph. Returns
  * true or false as appropriate.
  */
 bool GraphIsAdjacent(Graph g, Vertex v, Vertex w);
