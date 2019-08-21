@@ -151,6 +151,7 @@ void GraphDump(Graph g, FILE *fp) {
 
 ////////////////////////////////////////////////////////////////////////
 // Search Algorithms
+static Traversal newTraversal(Graph g, Vertex src);
 
 ////////
 // BFS
