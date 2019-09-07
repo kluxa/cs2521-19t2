@@ -1,9 +1,0 @@
-Enter the preorder traversal of the tree: Enter the in-order traversal of the tree: Enter val1: Enter val2: 
-Tree:
-
-7
-
-val1: 7
-val2: 7
-
-bstLowestCommonAncestor returned: 7
